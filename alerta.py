@@ -39,12 +39,10 @@ def is_completely_filled(dict_of_inputs):
   return  info_size == filled_size
 
         
-info = {
-    "temperatura": None,
-    "umidade": None}
+info = {"temperatura": None,
+ "umidade": None}
 
 while True:
-    
     if is_completely_filled(info):
         break
 
