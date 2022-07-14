@@ -1,0 +1,4 @@
+1,Suite Master, 500.0
+2,quarto Familia, 200.0 
+3,Quarto Simgle, 100.0 
+4,quarto simples, 50.0
