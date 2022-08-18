@@ -30,31 +30,36 @@ import logging
 log = logging.Logger("alerta") 
 
 
+# TODO: Mover para modulo de utilidades.
+
 def is_completely_filled(dict_of_inputs):
   """Return a boolean telling if a dict is completely filled. """
   info_size = len(dict_of_inputs)
   filled_size = len(
-    [value for value in dict_of_inputs() if value is not None]
-    )
+    [value for value in dict_of_inputs.values() if value is not None]
+  )
   return  info_size == filled_size
 
+
+def read_inputs_for_dict(dict_of_info):
+    """reads information for a dict from user input"""
+    for key in dict_of_info.keys(): # ["temperatura", "umidade"]
+            if dict_of_info[key] is not None:
+                continue
+            try:
+                dict_of_info[key] = int(input(f"{key}:").strip())
+            except ValueError:
+                log.error("%S Invalida, digite numeros", key)
+                break # para o for
+
+
+# PROGRAMA PRINCIPAL 
         
-info = {"temperatura": None,
- "umidade": None}
+info = {"temperatura": None,"umidade": None}
 
-while True:
-    if is_completely_filled(info):
-        break
-
-    for key in info.keys(): # ["temperatura", "umidade"]
-        if info[key] is not None:
-            continue
-        try:
-            info[key] = int(input(f"{key}:").strip())
-        except ValueError:
-            log.error("%S Invalida, digite numeros", key)
-            break # para o for
-
+while not is_completely_filled(info):
+    read_inputs_for_dict(info)
+    
 temp, umidade = info.values() # unpacking [30, 90]
 
 if temp > 45: 

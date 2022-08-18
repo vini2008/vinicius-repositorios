@@ -40,7 +40,7 @@ for arg in sys.argv[1:]:
    try: 
       key, value = arg.split("=")
    except ValueError as e:
-       # TODO: Logging
+      
        log.error(
           "you need to use '=', you passed %s, try --key=value: %s",
           arg.

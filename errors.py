@@ -1,6 +1,7 @@
 #!/usr/bin/env python3 
 import os
 import sys 
+import logging
 
 # EAFP - Easy to ASk Forgiveness Than permission
 # (É mais facil pedir perdão do que permisão)

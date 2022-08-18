@@ -1,22 +1,29 @@
+"""imprimir todos os nomes que começem com B"""
+
+
 names = [
    "Bruno",
    "Joao",
    "Bernado",
-   "barbara", 
-   "Brian"
+   "Barbara", 
+   "Brian",
 ]
+print("#" * 16)
+print("Estilo funcional")
+print(*list(filter(lambda text: text[0].lower() == "b" ,names)), sep="\n")
+print("" * 40)
+print("#" * 17)
+
+print("Estilo procedural")
 
 
-# TODO: Usar lambdas
-
-def starts_with_b(text):
-    return text[0].lower() == "n"
-    #return text.startswith(("b","B"))
+def start_with_b(text):
+    return text[0].lower() == "b"
 
 
-print(list(filter(starts_with_b, names)))
+filtro = filter(start_with_b ,names)
+filtro = list(filtro)
 
-
-
-
-
+for name in filtro:
+    print(name)
+print("" * 40)
